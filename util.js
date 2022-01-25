@@ -1,9 +1,9 @@
 // Extracted from https://github.com/ethereumjs/ethereumjs-util and stripped out irrelevant code
 // Original code licensed under the Mozilla Public License Version 2.0
 
-const createKeccakHash = require('keccak')
 const BN = require('bn.js')
 const Buffer = require('buffer/').Buffer
+const keccak256 = require('js-sha3').keccak256
 
 /**
  * Returns a buffer filled with 0s
@@ -96,14 +96,11 @@ function bufferToHex (buf) {
 /**
  * Creates Keccak hash of the input
  * @param {Buffer|Array|String|Number} a the input data
- * @param {Number} [bits=256] the Keccak width
  * @return {Buffer}
  */
-function keccak (a, bits) {
+function keccak (a) {
   a = toBuffer(a)
-  if (!bits) bits = 256
-
-  return createKeccakHash('keccak' + bits).update(a).digest()
+  return Buffer.from(keccak256(a), 'hex')
 }
 
 function padToEven (str) {
