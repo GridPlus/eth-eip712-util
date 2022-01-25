@@ -1,5 +1,6 @@
 const util = require('./util')
 const abi = require('./abi')
+const Buffer = require('buffer/').Buffer
 
 const TYPED_MESSAGE_SCHEMA = {
   type: 'object',

@@ -3,6 +3,7 @@
 
 const util = require('./util')
 const BN = require('bn.js')
+const Buffer = require('buffer/').Buffer
 
 // Convert from short to canonical names
 // FIXME: optimise or make this nicer?

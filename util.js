@@ -3,6 +3,7 @@
 
 const createKeccakHash = require('keccak')
 const BN = require('bn.js')
+const Buffer = require('buffer/').Buffer
 
 /**
  * Returns a buffer filled with 0s
